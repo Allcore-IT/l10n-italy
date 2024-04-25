@@ -268,7 +268,7 @@ class AccountMove(models.Model):
         line_to_reconcile = self._rc_get_move_line_to_reconcile()
         payment_debit_line_data = self.rc_debit_line_vals(
             line_to_reconcile.account_id,
-            payment_credit_line_data["credit"],
+            payment_credit_line_data["credit"] or payment_credit_line_data["debit"],
         )
         rc_payment_data["line_ids"] = [
             (0, 0, payment_debit_line_data),
@@ -459,6 +459,8 @@ class AccountMove(models.Model):
 
         if not supplier_invoice:
             supplier_invoice = self.create(supplier_invoice_vals)
+        else:
+            supplier_invoice.write(supplier_invoice_vals)
         invoice_line_vals = []
         for inv_line in self.invoice_line_ids:
             line_vals = inv_line.copy_data()[0]
