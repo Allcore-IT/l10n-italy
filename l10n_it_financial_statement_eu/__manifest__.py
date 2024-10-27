@@ -5,7 +5,7 @@
 
 {
     "name": "ITA - Bilancio UE con XBRL",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "category": "Localization/Italy",
     "development_status": "Alpha",
     "license": "AGPL-3",
@@ -23,7 +23,6 @@
     "assets": {
         "web.assets_backend": [
             "l10n_it_financial_statement_eu/static/src/js/client_action.esm.js",
-            "l10n_it_financial_statement_eu/static/src/js/report.esm.js",
             "l10n_it_financial_statement_eu/static/src/xml/report.xml",
         ],
     },
